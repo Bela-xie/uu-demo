@@ -23,10 +23,6 @@ export default {
         return value === "left" || value === "right";
       }
     }
-  },
-  created() {
-    console.log("laile");
-    console.log(this.loading);
   }
 };
 </script>
