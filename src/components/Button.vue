@@ -1,20 +1,33 @@
 <template>
-  <button :class="{[iconPosition]:true,'u-button':true}">
-    <span><u-icon :name="name"><u-icon/></span>
-    <div class="content"><slot /></div>
+  <button :class="{[iconPosition]:true,'u-button':true}" @click="$emit('click')">
+    <span v-if="icon&&!loading">
+      <u-icon :name="icon" />
+    </span>
+    <span v-if="loading" class="loading">
+      <u-icon name="loading" />
+    </span>
+    <div class="content">
+      <slot />
+    </div>
   </button>
 </template>
 <script lang="ts">
 export default {
   props: {
-    name,
-    iconPosition:{
-      default:'left',
-      validator(value){
-        return value==='left' || value==='right';
+    icon: {},
+    loading: { type: Boolean },
+    iconPosition: {
+      type: String,
+      default: "left",
+      validator(value) {
+        return value === "left" || value === "right";
       }
     }
   },
+  created() {
+    console.log("laile");
+    console.log(this.loading);
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -39,20 +52,31 @@ export default {
   &:focus {
     outline: none;
   }
-  &.left{
-    > span{
-    margin-right: .3em;
+  &.left {
+    > span {
+      margin-right: 0.3em;
     }
   }
-  &.right{
-    > span{
-    order:2;
-    margin-left: .3em;
+  &.right {
+    > span {
+      order: 2;
+      margin-left: 0.3em;
     }
-    > .content{
-      order:1;
+    > .content {
+      order: 1;
     }
   }
-  
+
+  > .loading {
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    animation: spin 1s infinite linear;
+  }
 }
 </style>

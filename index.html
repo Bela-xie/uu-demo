@@ -36,9 +36,10 @@
 
 <body>
     <div id="app">
-        <u-button name='setting'>按钮</u-button>
-        <u-button name='setting' icon-position='left'>按钮</u-button>
-        <u-button name='setting' icon-position='right'>按钮</u-button>
+        <u-button :loading='loading1' @click='loading1=!loading1'>按钮</u-button>
+        <u-button icon='setting' icon-position='left' :loading='loading2' @click="loading2=!loading2">按钮
+        </u-button>
+        <u-button icon='setting' icon-position='right' :loading='loading3' @click='loading3=!loading3'>按钮</u-button>
     </div>
     <script src="./src/app.js"></script>
     <script src="//at.alicdn.com/t/font_2036196_uz2k0awj1ci.js"></script>

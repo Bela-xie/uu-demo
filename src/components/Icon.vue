@@ -1,11 +1,11 @@
 <template>
   <svg class="icon" aria-hidden="true">
-    <use :xlink:href="`#icon-${name}`"></use>
+    <use :xlink:href="`#icon-${name}`" />
   </svg>
 </template>
 <script lang="ts">
 export default {
-  props: ["name"],
+  props: ["name"]
 };
 </script>
 <style lang="scss" scoped>
