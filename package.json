@@ -1,0 +1,8 @@
+{
+  "name": "uu-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:BelaXie/uu-demo.git",
+  "author": "bela <1981253197@qq.com>",
+  "license": "MIT"
+}
