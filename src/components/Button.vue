@@ -1,6 +1,6 @@
 <template>
-  <button :class="{[iconPosition]:true,'u-button':true}" @click="$emit('click')">
-    <span v-if="icon&&!loading">
+  <button :class="{ [iconPosition]: true, 'u-button': true }" @click="$emit('click')">
+    <span v-if="icon && !loading">
       <u-icon :name="icon" />
     </span>
     <span v-if="loading" class="loading">
@@ -12,6 +12,7 @@
   </button>
 </template>
 <script lang="ts">
+import Icon from "./Icon.vue";
 export default {
   props: {
     icon: {},
@@ -19,11 +20,16 @@ export default {
     iconPosition: {
       type: String,
       default: "left",
+
       validator(value) {
         return value === "left" || value === "right";
-      }
-    }
-  }
+      },
+    },
+  },
+  //测试的时候只打包了button，因此在app.js中全局设置的u-icon组件没有用，此处需要局部注册一下
+  components: {
+    "u-icon": Icon,
+  },
 };
 </script>
 <style lang="scss" scoped>
