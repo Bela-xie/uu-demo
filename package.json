@@ -6,6 +6,7 @@
   "author": "bela <1981253197@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "parcel": "^1.12.4",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
   },
