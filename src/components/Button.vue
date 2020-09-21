@@ -23,13 +23,13 @@ export default {
 
       validator(value) {
         return value === "left" || value === "right";
-      },
-    },
+      }
+    }
   },
   //测试的时候只打包了button，因此在app.js中全局设置的u-icon组件没有用，此处需要局部注册一下
   components: {
-    "u-icon": Icon,
-  },
+    "u-icon": Icon
+  }
 };
 </script>
 <style lang="scss" scoped>
