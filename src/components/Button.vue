@@ -14,6 +14,7 @@
 <script lang="ts">
 import Icon from "./Icon.vue";
 export default {
+  name: "UUButton",
   props: {
     icon: {},
     loading: { type: Boolean },
@@ -33,23 +34,24 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "../assets/styles/helper.scss";
 .u-button {
-  font-size: var(--font-size);
-  background-color: var(--button-bg);
-  border-radius: var(--border-radius);
+  font-size: $font-size;
+  background-color: $button-bg;
+  border-radius: $border-radius;
   padding: 0px 1em;
-  color: var(--color);
-  height: var(--button-height);
-  border: 1px solid var(--border-color);
+  color: $color;
+  height: $button-height;
+  border: 1px solid $border-color;
   display: inline-flex;
   vertical-align: middle;
   justify-content: center;
   align-items: center;
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: $border-color-hover;
   }
   &:active {
-    background-color: var(--button-active-bg);
+    background-color: $button-active-bg;
   }
   &:focus {
     outline: none;

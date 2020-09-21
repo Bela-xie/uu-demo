@@ -6,10 +6,12 @@
 <script lang="ts">
 import "../svg.js";
 export default {
+  name: "UUIcon",
   props: ["name"]
 };
 </script>
 <style lang="scss" scoped>
+@import "../assets/styles/helper.scss";
 .icon {
   width: 1em;
   height: 1em;

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name:"UUButtonGroup",
   mounted() {
     //避免用户使用其他元素包裹 u-button
     for (let node of this.$el.children) {
@@ -22,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/styles/helper.scss";
 .u-button-group {
   display: inline-flex;
   vertical-align: middle;
@@ -31,12 +33,12 @@ export default {
       margin-left: -1px;
     }
     &:first-child {
-      border-top-left-radius: var(--border-radius);
-      border-bottom-left-radius: var(--border-radius);
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
     }
     &:last-child {
-      border-top-right-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
     }
     &:hover {
       position: relative;
