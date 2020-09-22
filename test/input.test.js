@@ -11,11 +11,37 @@ describe('Button', () => {
     it('存在.', () => {
         expect(Input).to.exist; //不是 falsy 值就不报错
     })
+    describe("test events", () => {
+        const Constructor = Vue.extend(Input);
+        let vm;
+        afterEach(function () {
+            vm.$destroy();
+        })
+        it("change,input,blur,focus", () => {
+            ['change', 'input', 'blur', 'focus'].forEach(eventName => {
+                const event = new Event(eventName);
+                vm = new Constructor().$mount();
+                const callback = sinon.fake();
+                vm.$on(eventName, callback);
+                Object.defineProperty(
+                    event, 'target', {
+                        value: {
+                            value: 'hi'
+                        },
+                        enumerable: true
+                    }
+                )
+                const inputElement = vm.$el.querySelector("input");
+                inputElement.dispatchEvent(event);
+                expect(callback).to.have.been.calledWith('hi');
+            })
+        })
+    })
     describe('test Props', () => {
         const Constructor = Vue.extend(Input);
         let vm;
         afterEach(function () {
-            vm.$destroy()
+            vm.$destroy();
         })
         it('value', () => {
             vm = new Constructor({
@@ -31,7 +57,7 @@ describe('Button', () => {
                 propsData: {
                     disabled: true
                 }
-            }).$mount()
+            }).$mount();
             const inputElement = vm.$el.querySelector('input')
             expect(inputElement.disabled).to.equal(true)
         })
