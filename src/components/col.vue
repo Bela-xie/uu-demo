@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="col"
-    :class="[span&&`col-${span}`,offset&&`offset-${offset}`]"
-    :style="{paddingLeft:gutter/2+'px',paddingRight:gutter/2+'px'}"
-  >
+  <div class="col" :class="colClass" :style="colStyle">
     <div style="border:1px solid green;height:32px">
       <slot />
     </div>
@@ -13,6 +9,19 @@
 <script>
 export default {
   name: "UUCol",
+  computed: {
+    colStyle() {
+      const { gutter } = this;
+      return {
+        paddingLeft: gutter / 2 + "px",
+        paddingRight: gutter / 2 + "px"
+      };
+    },
+    colClass() {
+      const { span, offset } = this;
+      return [span && `col-${span}`, offset && `offset-${offset}`];
+    }
+  },
   props: {
     span: {
       type: [Number, String]
