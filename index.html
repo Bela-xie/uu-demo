@@ -10,6 +10,11 @@
         .box {
             margin-top: 20px;
         }
+
+        .grid {
+            margin-top: 20px;
+            background-color: gray;
+        }
     </style>
 </head>
 
@@ -33,6 +38,31 @@
         </div>
         <div class="box">
             <u-input value="赵六" error="有一个错误信息"></u-input>
+        </div>
+        <div class="grid">
+            <u-row>
+                <u-col span="16"></u-col>
+                <u-col span="6" offset="2"></u-col span="22">
+            </u-row>
+            <u-row gutter="20">
+                <u-col></u-col>
+                <u-col></u-col>
+                <u-col></u-col>
+            </u-row>
+            <u-row>
+                <u-col></u-col>
+                <u-col></u-col>
+                <u-col></u-col>
+                <u-col></u-col>
+            </u-row>
+            <u-row>
+                <u-col></u-col>
+                <u-col></u-col>
+            </u-row>
+            <u-row>
+                <u-col></u-col>
+                <u-col></u-col>
+            </u-row>
         </div>
     </div>
     <div id="test"></div>

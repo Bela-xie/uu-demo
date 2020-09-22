@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Icon from "./Icon.vue";
+import Icon from "./icon.vue";
 export default {
   name: "UUInput",
   components: {
