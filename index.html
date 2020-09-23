@@ -15,7 +15,7 @@
             margin-top: 20px;
             background-color: gray;
         } */
-        .layout {
+        /* .layout {
             min-height: 100vh;
         }
 
@@ -45,20 +45,21 @@
         #app .sider.slider-enter,
         #app .sider.slider-leave-to {
             margin-left: -200px;
-        }
+        } */
     </style>
 </head>
 
 <body>
     <div id="app">
-        <u-layout>
+        <button @click="$toast('弹出了一个消息呀')">点击</button>
+        <!-- <u-layout>
             <u-sider>sider</u-sider>
             <u-layout>
                 <u-header>header</u-header>
                 <u-content>content</u-content>
                 <u-footer>footer</u-footer>
             </u-layout>
-        </u-layout>
+        </u-layout> -->
 
         <!-- <div class="box">
             <u-button :loading='loading1' @click='loading1=!loading1'>按钮</u-button>

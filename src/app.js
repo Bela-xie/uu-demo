@@ -12,6 +12,7 @@ import Footer from "./components/footer.vue";
 import Sider from "./components/sider.vue";
 import "./assets/styles/reset.scss";
 import "./assets/styles/global.scss";
+import plugin from "./plugin.js"
 Vue.component("u-button", Button);
 Vue.component("u-icon", Icon);
 Vue.component("u-button-group", ButtonGroup);
@@ -23,6 +24,7 @@ Vue.component("u-header", Header);
 Vue.component("u-content", Content);
 Vue.component("u-footer", Footer);
 Vue.component("u-sider", Sider);
+Vue.use(plugin);
 new Vue({
   el: "#app",
   data: {
