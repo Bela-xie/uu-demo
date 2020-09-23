@@ -7,20 +7,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UU 框架</title>
     <style>
-        .box {
+        /* .box {
             margin-top: 20px;
         }
 
         .grid {
             margin-top: 20px;
             background-color: gray;
+        } */
+        .layout {
+            min-height: 100vh;
+        }
+
+        .header {
+            height: 200px;
+            width: 100%;
+            background-color: gray;
+        }
+
+        .content {
+            height: 200px;
+            width: 100%;
+            background-color: rgb(44, 43, 43);
+        }
+
+        .footer {
+            height: 200px;
+            width: 100%;
+            background-color: rgb(87, 86, 86);
+        }
+
+        .sider {
+            width: 200px;
+            background-color: indianred;
+        }
+
+        #app .sider.slider-enter,
+        #app .sider.slider-leave-to {
+            margin-left: -200px;
         }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <div class="box">
+        <u-layout>
+            <u-sider>sider</u-sider>
+            <u-layout>
+                <u-header>header</u-header>
+                <u-content>content</u-content>
+                <u-footer>footer</u-footer>
+            </u-layout>
+        </u-layout>
+
+        <!-- <div class="box">
             <u-button :loading='loading1' @click='loading1=!loading1'>按钮</u-button>
             <u-button icon='setting' icon-position='left' :loading='loading2' @click="loading2=!loading2">按钮
             </u-button>
@@ -72,8 +112,8 @@
                 <u-col></u-col>
             </u-row>
         </div>
+    </div> -->
     </div>
-    <div id="test"></div>
     <script src="./src/app.js"></script>
 </body>
 
