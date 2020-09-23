@@ -1,9 +1,11 @@
 import Toast from "./components/toast.vue"
 export default {
     install(Vue, options) {
-        Vue.prototype.$toast = (message) => {
+        Vue.prototype.$toast = (message, toastOptions) => {
             const Constructor = Vue.extend(Toast);
-            const vm = new Constructor();
+            const vm = new Constructor({
+                propsData: toastOptions
+            });
             //必须在$mount之前设置$slots，否则$slots为空
             vm.$slots.default = [message];
             vm.$mount();

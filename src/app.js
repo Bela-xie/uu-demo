@@ -37,4 +37,15 @@ new Vue({
       console.log(e);
     },
   },
+  created() {
+    this.$toast("一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息", {
+      autoClose: true,
+      closeButton: {
+        text: "关闭",
+        callback(toast) {
+          toast.log();
+        }
+      },
+    })
+  }
 });
