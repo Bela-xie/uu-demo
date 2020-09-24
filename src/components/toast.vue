@@ -6,7 +6,7 @@
         <div v-else v-html="$slots.default[0]"></div>
       </div>
       <span class="line" v-if="closeButton" ref="line"></span>
-      <span @click="onClickClose" class="close" v-if="closeButton">{{closeButton.text}}</span>
+      <span @click="onClickClose" class="close" v-if="closeButton">{{ closeButton.text }}</span>
     </div>
   </div>
 </template>
@@ -15,15 +15,14 @@
 export default {
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 50
+      type: [Boolean, Number],
+      default: 5,
+      validator(value) {
+        return value === false || typeof value === "number";
+      },
     },
     closeButton: {
-      type: Object
+      type: Object,
       //   default() {
       //     return {
       //       text: "知道了",
@@ -33,22 +32,22 @@ export default {
     },
     enableHtml: {
       type: Boolean,
-      default: false
+      default: false,
     },
     position: {
       type: String,
       default: "top",
       validator(value) {
         return ["top", "middle", "bottom"].indexOf(value) >= 0;
-      }
-    }
+      },
+    },
   },
   computed: {
     wrapperClass() {
       return {
-        [`position-${this.position}`]: true
+        [`position-${this.position}`]: true,
       };
-    }
+    },
   },
   mounted() {
     this.updateStyle();
@@ -59,21 +58,19 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
     updateStyle() {
       this.$nextTick(() => {
-        if(this.$refs.line){
-        this.$refs.line.style.height = `${
-          this.$refs.toast.getBoundingClientRect().height
-        }px`;
+        if (this.$refs.line) {
+          this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`;
         }
       });
     },
     close() {
       this.$el.remove();
-      this.$emit("close")
+      this.$emit("close");
       this.$destroy();
     },
     log() {
@@ -81,10 +78,9 @@ export default {
     },
     onClickClose() {
       this.close();
-      if (this.closeButton && typeof this.closeButton.callback === "function")
-        this.closeButton.callback(this);
-    }
-  }
+      if (this.closeButton && typeof this.closeButton.callback === "function") this.closeButton.callback(this);
+    },
+  },
 };
 </script>
 

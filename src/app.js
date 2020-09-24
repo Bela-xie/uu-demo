@@ -37,18 +37,18 @@ new Vue({
       console.log(e);
     },
 
-    showToast1(){
-      this.showToast("top")
+    showToast1() {
+      this.showToast("top");
     },
-    showToast2(){
-      this.showToast("middle")
+    showToast2() {
+      this.showToast("middle");
     },
-    showToast3(){
-      this.showToast("bottom")
+    showToast3() {
+      this.showToast("bottom");
     },
     showToast(position) {
       this.$toast("消息弹出来了", {
-        autoClose: true,
+        // autoClose: 3,
         position,
         closeButton: {
           text: "关闭",
