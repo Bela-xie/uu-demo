@@ -56,17 +56,17 @@
                 <template slot="actions">
                     <button>设置</button>
                 </template>
-                <u-tabs-item>
+                <u-tabs-item name="woman">
                     <u-icon name="setting"></u-icon>
                     美女
                 </u-tabs-item>
-                <u-tabs-item>财经</u-tabs-item>
-                <u-tabs-item>新闻</u-tabs-item>
+                <u-tabs-item name="finance">财经</u-tabs-item>
+                <u-tabs-item name="news">新闻</u-tabs-item>
             </u-tabs-head>
             <u-tabs-body>
-                <u-tabs-pane>美女相关资讯</u-tabs-pane>
-                <u-tabs-pane>财经相关资讯</u-tabs-pane>
-                <u-tabs-pane>新闻相关资讯</u-tabs-pane>
+                <u-tabs-pane name="woman">美女相关资讯</u-tabs-pane>
+                <u-tabs-pane name="finance">财经相关资讯</u-tabs-pane>
+                <u-tabs-pane name="news">新闻相关资讯</u-tabs-pane>
             </u-tabs-body>
         </u-tabs>
         <!-- <button @click="showToast1">top</button>
