@@ -12,7 +12,7 @@ import Footer from "./components/footer.vue";
 import Sider from "./components/sider.vue";
 import "./assets/styles/reset.scss";
 import "./assets/styles/global.scss";
-import plugin from "./plugin.js"
+import plugin from "./plugin.js";
 Vue.component("u-button", Button);
 Vue.component("u-icon", Icon);
 Vue.component("u-button-group", ButtonGroup);
@@ -36,16 +36,27 @@ new Vue({
     inputChange(e) {
       console.log(e);
     },
+
+    showToast1(){
+      this.showToast("top")
+    },
+    showToast2(){
+      this.showToast("middle")
+    },
+    showToast3(){
+      this.showToast("bottom")
+    },
+    showToast(position) {
+      this.$toast("消息弹出来了", {
+        autoClose: true,
+        position,
+        closeButton: {
+          text: "关闭",
+          callback(toast) {
+            toast.log();
+          },
+        },
+      });
+    }
   },
-  created() {
-    this.$toast("一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息一个消息", {
-      autoClose: true,
-      closeButton: {
-        text: "关闭",
-        callback(toast) {
-          toast.log();
-        }
-      },
-    })
-  }
 });
