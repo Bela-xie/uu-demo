@@ -7,6 +7,7 @@ function createToast({Vue, message, propsData, onClose}) {
     });
     //必须在$mount之前设置$slots，否则$slots为空
     vm.$slots.default = [message];
+    //如果$mount没有传入任何参数的话，那么vm会被挂载为页面之外的元素，此时getBoundingClientRect()的值都为0
     vm.$mount();
     vm.$on("close", onClose);
     document.body.appendChild(vm.$el);

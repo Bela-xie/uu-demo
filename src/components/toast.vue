@@ -62,8 +62,10 @@ export default {
       }
     },
     updateStyle() {
+      // 如果不使用nextTick，而是直接在mounted中设置高度的话，那个时候得到的getBoundingClientRect()都为0，这是因为在plugin.js中先 $mount 再放在了 body 页面中
       this.$nextTick(() => {
         if (this.$refs.line) {
+          //el.style只能获得内联样式，不能获得css样式，所以要用getBoundingClientRect()
           this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`;
         }
       });
