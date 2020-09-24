@@ -10,9 +10,21 @@ import Header from "./components/header.vue";
 import Content from "./components/content.vue";
 import Footer from "./components/footer.vue";
 import Sider from "./components/sider.vue";
+import Tabs from "./components/tabs.vue";
+import TabsBody from "./components/tabs-body.vue";
+import TabsHead from "./components/tabs-head.vue";
+import TabsItem from "./components/tabs-item.vue";
+import TabsPane from "./components/tabs-pane.vue";
 import "./assets/styles/reset.scss";
 import "./assets/styles/global.scss";
 import plugin from "./plugin.js";
+
+
+Vue.component("u-tabs", Tabs);
+Vue.component("u-tabs-head", TabsHead);
+Vue.component("u-tabs-item", TabsItem);
+Vue.component("u-tabs-body", TabsBody);
+Vue.component("u-tabs-pane", TabsPane);
 Vue.component("u-button", Button);
 Vue.component("u-icon", Icon);
 Vue.component("u-button-group", ButtonGroup);
@@ -31,6 +43,7 @@ new Vue({
     loading1: false,
     loading2: false,
     loading3: false,
+    selectedTag: "woman"
   },
   methods: {
     inputChange(e) {

@@ -51,9 +51,27 @@
 
 <body>
     <div id="app">
-        <button @click="showToast1">top</button>
+        <u-tabs :selected.sync="selectedTag">
+            <u-tabs-head>
+                <template slot="actions">
+                    <button>设置</button>
+                </template>
+                <u-tabs-item>
+                    <u-icon name="setting"></u-icon>
+                    美女
+                </u-tabs-item>
+                <u-tabs-item>财经</u-tabs-item>
+                <u-tabs-item>新闻</u-tabs-item>
+            </u-tabs-head>
+            <u-tabs-body>
+                <u-tabs-pane>美女相关资讯</u-tabs-pane>
+                <u-tabs-pane>财经相关资讯</u-tabs-pane>
+                <u-tabs-pane>新闻相关资讯</u-tabs-pane>
+            </u-tabs-body>
+        </u-tabs>
+        <!-- <button @click="showToast1">top</button>
         <button @click="showToast2">middle</button>
-        <button @click="showToast3">bottom</button>
+        <button @click="showToast3">bottom</button> -->
         <!-- <u-layout>
             <u-sider>sider</u-sider>
             <u-layout>
@@ -117,6 +135,7 @@
         </div>
     </div> -->
     </div>
+
     <script src="./src/app.js"></script>
 </body>
 
