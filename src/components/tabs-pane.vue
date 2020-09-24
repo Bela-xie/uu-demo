@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-pane" :class="classes" @click="xxx" v-if="active">
+  <div class="tabs-pane" :class="classes" @click="onClick" v-if="active">
     <slot></slot>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    xxx() {
+    onClick() {
       this.eventBus.$emit("update:selected", this.name);
     }
   }
@@ -39,8 +39,6 @@ export default {
 
 <style lang="scss" scoped>
 .tabs-pane {
-  &.active {
-    background-color: red;
-  }
+  padding: 1em;
 }
 </style>

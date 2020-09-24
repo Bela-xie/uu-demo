@@ -19,7 +19,15 @@ export default {
     };
   },
   mounted() {
-    this.eventBus.$emit("update:selected", this.selected);
+    this.$children.forEach(vm => {
+      if (vm.$options.name === "UUTabsHead") {
+        vm.$children.forEach(childVm => {
+          if (childVm.name === this.selected&&childVm.$options.name==="UUTabsItem") {
+            this.eventBus.$emit("update:selected", this.selected, childVm);
+          }
+        });
+      }
+    });
   },
   props: {
     selected: {
