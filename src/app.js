@@ -15,11 +15,13 @@ import TabsBody from "./components/tabs-body.vue";
 import TabsHead from "./components/tabs-head.vue";
 import TabsItem from "./components/tabs-item.vue";
 import TabsPane from "./components/tabs-pane.vue";
+import Popover from "./components/popover.vue";
 import "./assets/styles/reset.scss";
 import "./assets/styles/global.scss";
 import plugin from "./plugin.js";
 
 
+Vue.component("u-popover", Popover);
 Vue.component("u-tabs", Tabs);
 Vue.component("u-tabs-head", TabsHead);
 Vue.component("u-tabs-item", TabsItem);
@@ -46,6 +48,9 @@ new Vue({
     selectedTag: "woman"
   },
   methods: {
+    zzz() {
+      console.log('he')
+    },
     inputChange(e) {
       console.log(e);
     },
