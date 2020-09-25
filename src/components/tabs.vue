@@ -19,10 +19,20 @@ export default {
     };
   },
   mounted() {
+    if (this.$children.length === 0) {
+      console &&
+        console.warn &&
+        console.warn(
+          "u-tabs下应该有子组件u-head和u-body，但是你并没有写子组件"
+        );
+    }
     this.$children.forEach(vm => {
       if (vm.$options.name === "UUTabsHead") {
         vm.$children.forEach(childVm => {
-          if (childVm.name === this.selected&&childVm.$options.name==="UUTabsItem") {
+          if (
+            childVm.name === this.selected &&
+            childVm.$options.name === "UUTabsItem"
+          ) {
             this.eventBus.$emit("update:selected", this.selected, childVm);
           }
         });

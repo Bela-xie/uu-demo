@@ -31,8 +31,8 @@
     "vue": "./node_modules/vue/dist/vue.common.js"
   },
   "scripts": {
-    "dev-test": "parcel watch test/* --no-cache && karma start",
-    "test": "parcel build test/* --no-cache --no-minify & karma start --single-run",
+    "dev-test": "parcel watch test/* --no-cache & karma start",
+    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
     "start": "parcel index.html --no-cache"
   }
 }

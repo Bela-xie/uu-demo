@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "UUTabsBody",
-  inject: ["eventBus"]
+  inject: ["eventBus"],
 };
 </script>
 
