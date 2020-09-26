@@ -12,19 +12,31 @@
 
 <body>
     <div id="app">
-        <div @click="zzz" style="border:1px solid red">
+        <div @click="zzz" style="border:1px solid red;margin-left: 100px;">
             <u-popover>
+                <template slot="content">
+                    <div>jkfejkfdsfjaldjfkajsldfjsaljdfsdfegagldfdsfefsdfsd</div>
+                </template>
+                <u-button>点击</u-button>
+            </u-popover>
+            <u-popover position="bottom">
                 <template slot="content">
                     <div>这是一段文字</div>
                 </template>
-                <button>点击</button>
+                <u-button>点击</u-button>
             </u-popover>
-            <u-popover>
+            <u-popover position="left">
+                <template slot="content">
+                    <div>这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字</div>
+                </template>
+                <u-button>点击</u-button>
+            </u-popover>
+            <u-popover position="right">
                 <template slot="content">
                     <div>这是一段文字</div>
                 </template>
-                <button>点击</button>
-            </u-popover>
+                <u-button>点击</u-button>
+            </u-popover position="right">
         </div>
     </div>
 
