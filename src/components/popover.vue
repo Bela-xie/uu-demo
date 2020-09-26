@@ -28,25 +28,18 @@ export default {
   methods: {
     showContent() {
       //放在body后面的原因是防止外部的父元素使用了overflow:hidden将内容隐藏掉了
-      document.body.appendChild(this.$refs.contentWrapper);
-      const triggerWrapper = this.$refs.triggerWrapper;
-      const contentWrapper = this.$refs.contentWrapper;
+      const { triggerWrapper, contentWrapper } = this.$refs;
+      document.body.appendChild(contentWrapper);
       const { height: height2 } = contentWrapper.getBoundingClientRect();
       const { left, top, width, height } = triggerWrapper.getBoundingClientRect();
-      //getBoundingClientRect得到的数据是相对于窗口的位置，而不是相对于body，所以要加上window.scrollX和window.scrollY
-      if (this.position === "top") {
-        contentWrapper.style.left = window.scrollX + left + "px";
-        contentWrapper.style.top = window.scrollY + top + "px";
-      } else if (this.position === "bottom") {
-        contentWrapper.style.left = window.scrollX + left + "px";
-        contentWrapper.style.top = window.scrollY + height + top + "px";
-      } else if (this.position === "left") {
-        contentWrapper.style.left = window.scrollX + left + "px";
-        contentWrapper.style.top = window.scrollY + top + (height - height2) / 2 + "px";
-      } else {
-        contentWrapper.style.left = window.scrollX + width + left + "px";
-        contentWrapper.style.top = window.scrollY + top + (height - height2) / 2 + "px";
-      }
+      let positions = {
+        top: { left: window.scrollX + left, top: window.scrollY + top },
+        bottom: { left: window.scrollX + left, top: window.scrollY + height + top },
+        left: { left: window.scrollX + left, top: window.scrollY + top + (height - height2) / 2 },
+        right: { left: window.scrollX + width + left, top: window.scrollY + top + (height - height2) / 2 },
+      };
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     eventHandler(e) {
       if (this.$refs.triggerWrapper.contains(e.target) || (this.$refs.contentWrapper && this.$refs.contentWrapper.contains(e.target))) {
