@@ -14,6 +14,10 @@
 <script>
 export default {
   props: {
+    zIndex: {
+      type: [Number, String],
+      default: "auto",
+    },
     autoClose: {
       type: [Boolean, Number],
       default: 5,
@@ -52,6 +56,7 @@ export default {
   mounted() {
     this.updateStyle();
     this.execAutoClose();
+    this.$el.style.zIndex = this.zIndex;
   },
   methods: {
     execAutoClose() {
@@ -90,7 +95,7 @@ export default {
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
 $font-size: 14px;
-$animation-duration: 1s;
+$animation-duration: 350ms;
 @keyframes slide-up {
   0% {
     opacity: 0;
