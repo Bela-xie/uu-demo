@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "parcel": "^1.12.4",
+    "sass-loader": "^10.0.2",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
   },
@@ -25,7 +26,8 @@
     "sinon": "^9.0.3",
     "sinon-chai": "^3.5.0",
     "typescript": "^4.0.3",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "vuepress": "^1.6.0"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"
@@ -33,6 +35,8 @@
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
-    "start": "parcel index.html --no-cache"
+    "start": "parcel index.html --no-cache",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   }
 }

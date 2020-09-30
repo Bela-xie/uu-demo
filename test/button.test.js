@@ -9,7 +9,7 @@ describe('Button', () => {
 
     // it 的作用就相当于之前写测试时的代码块，将各个测试之间隔离开，第一个参数自定义，给测试起名字，就相当于之前写注释一样
     it('存在.', () => {
-        expect(Button).to.be.ok; //不是 falsy 值就不报错
+        expect(Button).to.exist; //不是 falsy 值就不报错
     });
     it('可以设置icon.', () => {
         const Constructor = Vue.extend(Button);

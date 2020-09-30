@@ -1,10 +1,10 @@
 <template>
-  <transition name="slider">
-    <div class="sider" v-if="visible">
-      <button @click="visible=false">close</button>
-      <slot />
-    </div>
-  </transition>
+  <!-- <transition name="slider"> -->
+  <div class="sider" v-if="visible">
+    <!-- <button @click="visible = false">close</button> -->
+    <slot />
+  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -12,9 +12,9 @@ export default {
   name: "UUSider",
   data() {
     return {
-      visible: "true"
+      visible: true,
     };
-  }
+  },
 };
 </script>
 
@@ -27,12 +27,12 @@ export default {
     right: 0;
   }
 }
-.slider-enter-active,
-.slider-leave-active {
-  transition: all 1s;
-}
-.slider-enter,
-.slider-leave-to {
-  margin-left: -300px;
-}
+// .slider-enter-active,
+// .slider-leave-active {
+//   transition: all 1s;
+// }
+// .slider-enter,
+// .slider-leave-to {
+//   margin-left: -100px;
+// }
 </style>

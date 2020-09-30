@@ -15,12 +15,15 @@ import TabsBody from "./components/tabs-body.vue";
 import TabsHead from "./components/tabs-head.vue";
 import TabsItem from "./components/tabs-item.vue";
 import TabsPane from "./components/tabs-pane.vue";
+import Collapse from "./components/collapse.vue";
+import CollapseItem from "./components/collapse-item.vue";
 import Popover from "./components/popover.vue";
 import "./assets/styles/reset.scss";
 import "./assets/styles/global.scss";
 import plugin from "./plugin.js";
 
-
+Vue.component("u-collapse", Collapse);
+Vue.component("u-collapse-item", CollapseItem);
 Vue.component("u-popover", Popover);
 Vue.component("u-tabs", Tabs);
 Vue.component("u-tabs-head", TabsHead);
@@ -42,6 +45,7 @@ Vue.use(plugin);
 new Vue({
   el: "#app",
   data: {
+    selected: ["2"],
     loading1: false,
     loading2: false,
     loading3: false,

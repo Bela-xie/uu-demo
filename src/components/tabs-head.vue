@@ -15,12 +15,12 @@ export default {
   created() {
     this.eventBus.$on("update:selected", (name, vm) => {
       if (vm) {
-        const { width, left } = vm.$el.getBoundingClientRect();
+        const { width } = vm.$el.getBoundingClientRect();
         this.$refs.line.style.width = width + "px";
-        this.$refs.line.style.left = left + "px";
+        this.$refs.line.style.left = vm.$el.offsetLeft + "px";
       }
     });
-  }
+  },
 };
 </script>
 
