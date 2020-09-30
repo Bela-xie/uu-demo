@@ -5,10 +5,10 @@
 </template>
 
 <script>
-const validator = value => {
+const validator = (value) => {
   const keys = Object.keys(value);
   let valid = true;
-  keys.forEach(key => {
+  keys.forEach((key) => {
     if (["span", "offset"].indexOf(key) < 0) {
       valid = false;
     }
@@ -17,69 +17,58 @@ const validator = value => {
 };
 export default {
   name: "UUCol",
-  methods: {
-    createClasses(obj, str) {
-      if (obj) {
-        return [
-          obj.span && `${str}-col-${obj.span}`,
-          obj.offset && `${str}-offset-${obj.offset}`
-        ];
-      } else {
-        return [];
-      }
-    }
+  data: function() {
+    return {
+      gutter: 0,
+    };
+  },
+  props: {
+    span: {
+      type: [Number, String],
+    },
+    offset: {
+      type: [Number, String],
+    },
+    ipad: {
+      type: Object,
+      validator,
+    },
+    smallPc: {
+      type: Object,
+      validator,
+    },
+    pc: {
+      type: Object,
+      validator,
+    },
+    bigPc: {
+      type: Object,
+      validator,
+    },
   },
   computed: {
     colStyle() {
       const { gutter } = this;
       return {
         paddingLeft: gutter / 2 + "px",
-        paddingRight: gutter / 2 + "px"
+        paddingRight: gutter / 2 + "px",
       };
     },
-
     colClass() {
       const { ipad, smallPc, pc, bigPc, createClasses } = this;
       const { span, offset } = this;
-      return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
-        ...createClasses(ipad, "ipad"),
-        ...createClasses(smallPc, "smallPc"),
-        ...createClasses(pc, "pc"),
-        ...createClasses(bigPc, "bigPc")
-      ];
-    }
+      return [span && `col-${span}`, offset && `offset-${offset}`, ...createClasses(ipad, "ipad"), ...createClasses(smallPc, "smallPc"), ...createClasses(pc, "pc"), ...createClasses(bigPc, "bigPc")];
+    },
   },
-  props: {
-    span: {
-      type: [Number, String]
+  methods: {
+    createClasses(obj, str) {
+      if (obj) {
+        return [obj.span && `${str}-col-${obj.span}`, obj.offset && `${str}-offset-${obj.offset}`];
+      } else {
+        return [];
+      }
     },
-    offset: {
-      type: [Number, String]
-    },
-    ipad: {
-      type: Object,
-      validator
-    },
-    smallPc: {
-      type: Object,
-      validator
-    },
-    pc: {
-      type: Object,
-      validator
-    },
-    bigPc: {
-      type: Object,
-      validator
-    }
   },
-  data: function() {
-    return {
-      gutter: 0
-    };
-  }
 };
 </script>
 

@@ -7,12 +7,65 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UU 框架</title>
     <style>
+        .row {
+            width: 600px;
+        }
+
+        .col {
+            box-sizing: border-box;
+            height: 10vh;
+            border: 1px solid rgb(196, 189, 189);
+            background-color: #3eaf7c;
+        }
     </style>
 </head>
 
 <body>
     <div id="app" style="padding: 100px;">
-        <u-tabs :selected.sync="selectedTag">
+        <div class="grid">
+            <u-row>
+                <u-col span="4">span:4</u-col>
+                <u-col span="4">span:4</u-col>
+                <u-col span="4">span:4</u-col>
+                <u-col span="4">span:4</u-col>
+                <u-col span="4">span:4</u-col>
+                <u-col span="4">span:4</u-col>
+            </u-row>
+            <u-row>
+                <u-col span="6">span:6</u-col>
+                <u-col span="6">span:6</u-col>
+                <u-col span="6">span:6</u-col>
+                <u-col span="6">span:6</u-col>
+            </u-row>
+            <u-row>
+                <u-col span="8">span:8</u-col>
+                <u-col span="8">span:8</u-col>
+                <u-col span="8">span:8</u-col>
+            </u-row>
+            <u-row>
+                <u-col span="12">span:12</u-col>
+                <u-col span="12">span:12</u-col>
+            </u-row>
+            <u-row>
+                <u-col span="24">span:24</u-col>
+            </u-row>
+            <u-row align="right">
+                <u-col style="height: 32px; border: 1px solid green;" span="6" :ipad="{span:'12'}"
+                    :small-pc="{span:'8'}">1
+                </u-col>
+                <u-col style="height: 32px; border: 1px solid green;" span="6" :ipad="{span:'12'}"
+                    :small-pc="{span:'8'}">2
+                </u-col>
+                <u-col style="height: 32px; border: 1px solid green;" span="6" :ipad="{span:'12'}"
+                    :small-pc="{span:'8'}">3
+                </u-col>
+                <u-col style="height: 32px; border: 1px solid green;" span="6" :ipad="{span:'12'}"
+                    :small-pc="{span:'8'}">4
+                </u-col>
+            </u-row>
+            <br />
+        </div>
+        <!-- <u-tabs :selected.sync="selectedTag">
             <u-tabs-head>
                 <template slot="actions">
                     <button>设置</button>
@@ -29,7 +82,7 @@
                 <u-tabs-pane name="finance">财经相关资讯</u-tabs-pane>
                 <u-tabs-pane name="news">新闻相关资讯</u-tabs-pane>
             </u-tabs-body>
-        </u-tabs>
+        </u-tabs> -->
         <!-- <u-collapse :selected.sync="selected">
             <u-collapse-item title="标题一" name="1">内容一</u-collapse-item>
             <u-collapse-item title="标题二" name="2">内容二</u-collapse-item>
