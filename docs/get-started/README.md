@@ -11,8 +11,8 @@ title: 快速上手
 ## Hello World
 
 ```js
-import {Button} from 'uu-ui'
 import Vue from 'vue'
+import {Button} from 'uu-ui'
 
 new Vue({
   el: '#app',

@@ -10,12 +10,12 @@ title: 安装
 
 ```shell script
 # 最新稳定版
-yarn add uu-ui-demo
-``` 
+yarn add uu-ui
+```
 
 ## npm 安装
 
 ```shell script
 # 最新稳定版
-npm i uu-ui-demo
+npm i uu-ui
 ```

@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /hero.png
-# heroText: UU 框架
+heroText: null
 tagline: 一个基于 Vue 的 UI 框架
 actionText: 快速上手 →
 actionLink: /introduction/
